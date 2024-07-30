@@ -1,0 +1,23 @@
+clear lock
+
+keycode   9 = dollar asciitilde dollar
+keycode  21 = Super_R NoSymbol Super_R
+keycode  23 = Tab ISO_Left_Tab F4 F4
+keycode  26 = period greater Prior Prior
+keycode  27 = p P Next Next
+keycode  31 = c C Home Home
+keycode  32 = r R End End
+keycode  34 = slash question BackSpace BackSpace
+keycode  38 = a A Escape Escape
+keycode  40 = e E Return Return
+keycode  41 = u U Multi_key Multi_key
+keycode  43 = d D Left Left
+keycode  44 = h H Down Down
+keycode  45 = t T Up Up
+keycode  46 = n N Right Right
+keycode  47 = s S Caps_Lock Caps_Lock
+keycode  48 = minus underscore Delete Delete
+keycode  66 = Escape NoSymbol Escape
+keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+
+keycode  255 = numbersign grave numbersign grave

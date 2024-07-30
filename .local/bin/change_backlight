@@ -1,0 +1,14 @@
+#!/bin/bash
+msgId="991047"
+
+up() { xbacklight -inc $1; }
+down() { xbacklight -dec $1; }
+
+case "$1" in
+    up) up $2;;
+    down) down $2;;
+esac >/dev/null
+
+brightness="$(xbacklight -get | sed 's/[0-9]\{5\}$//g')"
+
+dunstify -r $msgId -h int:value:"$brightness" " ${brightness}%"

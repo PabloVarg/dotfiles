@@ -1,0 +1,25 @@
+#! /bin/bash
+
+MSG_ID="542732"
+
+send_notification () {
+    dunstify -r $MSG_ID -u critical -t 60000 " Check battery level"
+}
+
+while [ true ]
+do
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    stats=$(cat /sys/class/power_supply/BAT0/status)
+
+    if [ $capacity -ge 80 ] && [ $stats = "Charging" ]
+    then
+        send_notification
+    fi
+
+    if [ $capacity -le 40 ] && [ $stats = "Discharging" ]
+    then
+        send_notification
+    fi
+
+    sleep 1m
+done

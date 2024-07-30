@@ -123,9 +123,41 @@ gtk_theme=(
     "vimix-cursors"
 )
 
+
+dev_extra=(
+    "jdk11-openjdk"
+    "texlive-core"
+    "minted"
+    "maven"
+    "clang"
+)
+
+laptop_extra=(
+    "efibootmgr"
+    "xf86-input-libinput"
+    "bluez"
+    "bluez-utils"
+    "pulseaudio-bluetooth"
+    "tlp"
+    "powertop"
+    "cups"
+    "samsung-printers"
+    "simple-scan"
+    "hplip"
+    "dosfstools"
+    "xorg-xinput"
+    "udisks2"
+    "android-tools"
+)
+
+office_extra=(
+    "libreoffice-still"
+    "hunspell-es_mx"
+)
+
 packages_to_install=(
     "${base[@]}"
-    "${amd_cpu[@]}"
+    "${intel_ucode[@]}"
     "${gpu[@]}"
     "${sound[@]}"
     "${xorg[@]}"
@@ -137,6 +169,10 @@ packages_to_install=(
     "${entertainment[@]}"
     "${fonts[@]}"
     "${gtk_theme[@]}"
+    # Extra
+    "${dev_extra[@]}"
+    "${laptop_extra[@]}"
+    "${office_extra[@]}"
 )
 
 ensure_aur_pkg_is_installed() {

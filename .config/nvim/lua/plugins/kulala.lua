@@ -1,7 +1,7 @@
 return {
 	{
 		"mistweaverco/kulala.nvim",
-		enabled = false,
+		enabled = true,
 		ft = "http",
 		config = function()
 			require("kulala").setup({

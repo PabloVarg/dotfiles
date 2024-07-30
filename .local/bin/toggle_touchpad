@@ -1,0 +1,13 @@
+#! /bin/env bash
+set -euo pipefail
+
+
+device="FTE1200:00 0B05:0701 Touchpad"
+enabled=$(xinput --list-props "$device" | grep "Device Enabled" | awk '{print $NF}')
+
+
+if [[ "$enabled" == "1" ]]; then
+    sudo xinput --disable "$device"
+else
+    sudo xinput --enable "$device"
+fi
