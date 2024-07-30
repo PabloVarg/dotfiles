@@ -115,6 +115,15 @@ XF86AudioPrev
 XF86AudioNext
     playerctl next
 
+XF86MonBrightnessDown
+    change_backlight down .5
+
+XF86MonBrightnessUp
+    change_backlight up .5
+
+XF86TouchpadToggle
+    toggle_touchpad
+
 # Special fn bindings
 
 super + {F1, control + ampersand}
