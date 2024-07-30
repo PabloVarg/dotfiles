@@ -5,12 +5,12 @@ setmodmap () {
 }
 
 dvorak () {
-    setxkbmap -layout us -variant dvp
+    setxkbmap -layout us -variant dvp -option caps:swapescape
     setmodmap "${XDG_CONFIG_HOME}/.Xmodmap"
 }
 
 qwerty () {
-    setxkbmap -layout latam
+    setxkbmap -layout latam -option caps:swapescape
 }
 
 case "$1" in
