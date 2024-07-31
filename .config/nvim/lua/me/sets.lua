@@ -1,3 +1,5 @@
+vim.g.clipboard = "tmux"
+
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.clipboard = "unnamedplus"

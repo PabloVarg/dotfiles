@@ -23,9 +23,10 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+export GOPATH="${HOME}/.go"
 
 # Path
-export PATH="${PATH}:${XDG_LOCAL_BIN}"
+export PATH="${PATH}:${XDG_LOCAL_BIN}:${HOME}/go/bin:${HOME}/.cache/.bun/bin"
 
 # Configuration
 export FZF_DEFAULT_OPTS='--no-color --border=rounded --cycle'

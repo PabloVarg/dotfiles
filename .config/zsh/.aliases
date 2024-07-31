@@ -48,3 +48,6 @@ alias vdown='sudo virsh net-destroy default && sudo systemctl stop libvirtd.serv
 # Keyboard layouts
 alias aoeu='keyboard qwerty'
 alias asdf='keyboard dvorak'
+
+# k8s
+alias k='kubectl'
