@@ -30,6 +30,7 @@ return {
 					markdown = { "prettierd", "prettier", stop_after_first = true },
 					json = { "prettierd", "prettier", stop_after_first = true },
 					go = { "gofumpt", "golines" },
+					zig = { "zigfmt" },
 					sql = { "sqlfmt" },
 				},
 			})
