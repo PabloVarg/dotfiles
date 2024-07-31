@@ -6,73 +6,73 @@ base=(
     "base"
     "base-devel"
     "grub"
-    "os-prober"
+    # "os-prober"
     "git"
     "man-db"
     "yay-bin"
     "networkmanager"
     "unzip"
-    "maim"
-    "xclip"
-    "sxhkd"
+    # "maim"
+    # "xclip"
+    # "sxhkd"
     "openssh"
-    "libnotify"
-    "xcape"
-    "ufw"
-    "lm_sensors"
+    # "libnotify"
+    # "xcape"
+    # "ufw"
+    # "lm_sensors"
     "stow"
 )
 
 intel_cpu=(
-    "intel-ucode"
+    # "intel-ucode"
 )
 
 amd_cpu=(
-    "amd-ucode"
+    # "amd-ucode"
 )
 
 gpu=(
-    "libva-utils"
-    "vdpauinfo"
-    "nvtop"
+    # "libva-utils"
+    # "vdpauinfo"
+    # "nvtop"
 )
 
 nvidia=(
-    "nvidia"
-    "nvidia-utils"
-    "nvidia-settings"
-    "libva-nvidia-driver"
+    # "nvidia"
+    # "nvidia-utils"
+    # "nvidia-settings"
+    # "libva-nvidia-driver"
 )
 
 sound=(
-    "pavucontrol"
-    "alsa-utils"
-    "pulseaudio-alsa"
-    "playerctl"
+    # "pavucontrol"
+    # "alsa-utils"
+    # "pulseaudio-alsa"
+    # "playerctl"
 )
 
 xorg=(
-    "xorg-server"
-    "xorg-xinit"
-    "xorg-xrandr"
+    # "xorg-server"
+    # "xorg-xinit"
+    # "xorg-xrandr"
 )
 
 gui=(
-    "i3-wm"
-    "polybar"
-    "xwallpaper"
-    "picom"
-    "redshift-minimal"
-    "dunst"
+    # "i3-wm"
+    # "polybar"
+    # "xwallpaper"
+    # "picom"
+    # "redshift-minimal"
+    # "dunst"
 )
 
 utilities=(
     "htop"
     "lf-bin"
     "sxiv"
-    "zathura-pdf-mupdf"
-    "mpv"
-    "lxappearance"
+    # "zathura-pdf-mupdf"
+    # "mpv"
+    # "lxappearance"
 )
 
 terminal=(
@@ -91,33 +91,33 @@ nvim=(
 )
 
 qemu=(
-    "virt-manager"
-    "qemu-desktop"
-    "libvirt"
-    "iptables-nft"
-    "dnsmasq"
-    "openbsd-netcat"
+    # "virt-manager"
+    # "qemu-desktop"
+    # "libvirt"
+    # "iptables-nft"
+    # "dnsmasq"
+    # "openbsd-netcat"
 )
 
 entertainment=(
-    "firefox"
-    "yt-dlp"
+    # "spotify"
+    # "firefox"
+    # "yt-dlp"
 )
 
 fonts=(
     "ttf-fira-code"
-    "ttf-font-awesome"
+    # "ttf-font-awesome"
 )
 
 gtk_theme=(
-    "gruvbox-dark-gtk"
-    "papirus-icon-theme"
-    "vimix-cursors"
+    # "gruvbox-dark-gtk"
+    # "papirus-icon-theme"
+    # "vimix-cursors"
 )
 
 packages_to_install=(
     "${base[@]}"
-    "${amd_cpu[@]}"
     "${gpu[@]}"
     "${nvidia[@]}"
     "${sound[@]}"
@@ -199,6 +199,6 @@ ensure_yay_is_installed
 [[ "${#packages_ensure_uninstalled[@]}" != "0" ]] && yay -Rns "${packages_ensure_uninstalled[@]}"
 
 # Manual packages
-ensure_st_is_installed
-ensure_dmenu_is_installed
-ensure_slock_is_installed
+# ensure_st_is_installed
+# ensure_dmenu_is_installed
+# ensure_slock_is_installed
