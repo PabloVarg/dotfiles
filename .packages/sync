@@ -4,67 +4,22 @@ set -euo pipefail
 
 base=(
     "linux"
-    "linux-firmware"
     "base"
     "base-devel"
     "grub"
-    "os-prober"
-    "efibootmgr"
     "git"
     "man-db"
     "yay-bin"
     "networkmanager"
     "unzip"
     "openssh"
-    "libnotify"
-    "ufw"
-    "lm_sensors"
     "stow"
-)
-
-cpu=(
-    "amd-ucode"
-)
-
-gpu=(
-    "nvtop"
-)
-
-sound=(
-    "alsa-utils"
-    "pipewire"
-    "pipewire-alsa"
-    "pipewire-pulse"
-    "pipewire-jack"
-    "playerctl"
-    "pavucontrol"
-)
-
-sway=(
-    "sway"
-    "swaybg"
-    "swaylock"
-    "waybar"
-    "wmenu"
-    "wl-clipboard"
-    "slurp"
-    "grim"
-    "xorg-xwayland"
-)
-
-gui=(
-    "gammastep"
-    "dunst"
 )
 
 utilities=(
     "htop"
     "lf"
     "sxiv"
-    "zathura-pdf-mupdf"
-    "mpv"
-    "lxappearance"
-    "jq"
 )
 
 terminal=(
@@ -82,45 +37,21 @@ nvim=(
     "ripgrep"
 )
 
-qemu=(
-    "virt-manager"
-    "qemu-desktop"
-    "libvirt"
-    "iptables-nft"
-    "dnsmasq"
-    "openbsd-netcat"
-)
-
-entertainment=(
-    "firefox"
-    "yt-dlp"
-)
-
-fonts=(
-    "ttf-dejavu"
-    "ttf-fira-code"
-)
-
-gtk_theme=(
-    "gruvbox-dark-gtk"
-    "papirus-icon-theme"
-    "vimix-cursors"
+dev=(
+    "jq"
+    "go"
+    "kubectl"
+    "k9s"
+    "python-uv"
+    "helm"
 )
 
 packages_to_install=(
     "${base[@]}"
-    "${sway[@]}"
-    "${cpu[@]}"
-    "${gpu[@]}"
-    "${sound[@]}"
-    "${gui[@]}"
     "${utilities[@]}"
     "${terminal[@]}"
     "${nvim[@]}"
-    "${qemu[@]}"
-    "${entertainment[@]}"
-    "${fonts[@]}"
-    "${gtk_theme[@]}"
+    "${dev[@]}"
 )
 
 ensure_aur_pkg_is_installed() {
@@ -136,18 +67,6 @@ ensure_aur_pkg_is_installed() {
     rm -rf "${repo_dir}"
 }
 
-ensure_suckless_pkg_is_installed() {
-    repo_dir="${1}"
-    repo_url="${2}"
-
-    if command -v "${3}" &> /dev/null; then
-        return
-    fi
-
-    [[ ! -d "${repo_dir}" ]] && git clone "${repo_url}" "${repo_dir}"
-    (cd "${repo_dir}" && sudo make install clean)
-}
-
 
 ensure_yay_is_installed() {
     tmp_dir=$(mktemp -d)
@@ -158,14 +77,6 @@ ensure_yay_is_installed() {
     repo_url="https://aur.archlinux.org/yay-bin.git"
 
     ensure_aur_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
-}
-
-ensure_st_is_installed() {
-    pkg_name="st"
-    repo_dir="${SYSTEM_PROJECTS}/st"
-    repo_url="https://github.com/PabloVarg/st"
-
-    ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
 }
 
 sync_packages() {
@@ -223,6 +134,3 @@ sync_packages() {
 # Manage packages
 ensure_yay_is_installed
 sync_packages
-
-# Manual packages
-ensure_st_is_installed
