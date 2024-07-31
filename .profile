@@ -25,8 +25,7 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
 # Path
-export PATH="${PATH}:${XDG_LOCAL_BIN}"
-
+export PATH="${PATH}:${XDG_LOCAL_BIN}:${HOME}/go/bin:${HOME}/.cache/.bun/bin"
 
 # Start graphical server
 if command -v ssh &> /dev/null && systemctl -q is-active graphical.target && [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
