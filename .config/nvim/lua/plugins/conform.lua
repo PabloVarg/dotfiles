@@ -31,6 +31,7 @@ return {
 					json = { "prettierd", "prettier", stop_after_first = true },
 					go = { "gofumpt", "golines" },
 					sql = { "sqruff" },
+					zig = { "zigfmt" },
 				},
 			})
 
