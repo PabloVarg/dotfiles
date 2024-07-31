@@ -4,82 +4,22 @@ set -euo pipefail
 
 base=(
     "linux"
-    "linux-firmware"
     "base"
     "base-devel"
     "grub"
-    "os-prober"
-    "efibootmgr"
     "git"
     "man-db"
     "yay-bin"
     "networkmanager"
     "unzip"
-    "maim"
-    "xclip"
-    "sxhkd"
     "openssh"
-    "libnotify"
-    "xcape"
-    "ufw"
-    "lm_sensors"
     "stow"
-)
-
-intel_cpu=(
-    "intel-ucode"
-)
-
-amd_cpu=(
-    "amd-ucode"
-)
-
-gpu=(
-    "nvtop"
-)
-
-nvidia=(
-    "nvidia"
-    "nvidia-utils"
-    "nvidia-settings"
-    "libva-nvidia-driver"
-    "libva-utils"
-    "vdpauinfo"
-)
-
-sound=(
-    "alsa-utils"
-    "pipewire"
-    "pipewire-alsa"
-    "pipewire-pulse"
-    "pipewire-jack"
-    "playerctl"
-    "pavucontrol"
-)
-
-xorg=(
-    "xorg-server"
-    "xorg-xinit"
-    "xorg-xrandr"
-    "xorg-xinput"
-)
-
-gui=(
-    "i3-wm"
-    "polybar"
-    "xwallpaper"
-    "picom"
-    "redshift-minimal"
-    "dunst"
 )
 
 utilities=(
     "htop"
     "lf"
     "sxiv"
-    "zathura-pdf-mupdf"
-    "mpv"
-    "lxappearance"
 )
 
 terminal=(
@@ -97,46 +37,25 @@ nvim=(
     "ripgrep"
 )
 
-qemu=(
-    "virt-manager"
-    "qemu-desktop"
-    "libvirt"
-    "iptables-nft"
-    "dnsmasq"
-    "openbsd-netcat"
-)
-
-entertainment=(
-    "ttf-dejavu"
-    "firefox"
-    "yt-dlp"
-)
-
-fonts=(
-    "ttf-fira-code"
-    "ttf-font-awesome"
-)
-
-gtk_theme=(
-    "gruvbox-dark-gtk"
-    "papirus-icon-theme"
-    "vimix-cursors"
+dev=(
+    "jq"
+    "go"
+    "kubectl"
+    "k9s"
+    "python-uv"
+    "podman"
+    "podman-docker"
+    "podman-compose"
+    "jujutsu"
+    "helm"
 )
 
 packages_to_install=(
     "${base[@]}"
-    "${amd_cpu[@]}"
-    "${gpu[@]}"
-    "${sound[@]}"
-    "${xorg[@]}"
-    "${gui[@]}"
     "${utilities[@]}"
     "${terminal[@]}"
     "${nvim[@]}"
-    "${qemu[@]}"
-    "${entertainment[@]}"
-    "${fonts[@]}"
-    "${gtk_theme[@]}"
+    "${dev[@]}"
 )
 
 ensure_aur_pkg_is_installed() {
@@ -234,8 +153,3 @@ sync_packages() {
 # Manage packages
 ensure_yay_is_installed
 sync_packages
-
-# Manual packages
-ensure_st_is_installed
-ensure_dmenu_is_installed
-ensure_slock_is_installed
