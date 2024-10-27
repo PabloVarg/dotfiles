@@ -25,4 +25,4 @@ vim.keymap.set("n", "<leader>dj", "<Plug>VimspectorDownFrame")
 vim.keymap.set({ "x", "n" }, "<leader>di", "<Plug>VimspectorBalloonEval")
 
 vim.keymap.set("n", "[b", vim.fn["vimspector#JumpToPreviousBreakpoint"])
-vim.keymap.set("n", "[b", vim.fn["vimspector#JumpToNextBreakpoint"])
+vim.keymap.set("n", "]b", vim.fn["vimspector#JumpToNextBreakpoint"])
