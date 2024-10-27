@@ -1,6 +1,7 @@
 vim.keymap.set("n", "<leader>db", vim.fn["vimspector#ListBreakpoints"])
 vim.keymap.set("n", "<leader>dc", function()
-	vim.call("vimspector#ClearBreakpoints")
+	vim.fn["vimspector#ClearBreakpoints"]()
+	vim.opt.signcolumn = "no"
 end)
 
 vim.keymap.set("n", "<leader>dl", vim.fn["vimspector#GoToCurrentLine"])
@@ -15,7 +16,10 @@ vim.keymap.set("n", "<leader>dx", vim.fn["vimspector#Continue"])
 vim.keymap.set("n", "<leader>dq", vim.cmd.VimspectorReset)
 vim.keymap.set("n", "<leader>dr", vim.fn["vimspector#Restart"])
 
-vim.keymap.set("n", "<leader>tb", vim.fn["vimspector#ToggleBreakpoint"])
+vim.keymap.set("n", "<leader>tb", function()
+	vim.fn["vimspector#ToggleBreakpoint"]()
+	vim.opt.signcolumn = "yes:2"
+end)
 vim.keymap.set("n", "<leader>tc", "<Plug>VimspectorToggleConditionalBreakpoint")
 vim.keymap.set("n", "<leader>dpf", "<Plug>VimspectorAddFunctionBreakpoint")
 
