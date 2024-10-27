@@ -28,7 +28,6 @@ require("lazy").setup({
 	"vim-test/vim-test",
 	"mattn/emmet-vim",
 	"folke/zen-mode.nvim",
-	-- "puremourning/vimspector",
 	"stevearc/oil.nvim",
 
 	{ "theprimeagen/git-worktree.nvim" },
@@ -88,4 +87,6 @@ require("lazy").setup({
 	"mfussenegger/nvim-lint",
 	"stevearc/conform.nvim",
 	"stevearc/dressing.nvim",
+
+	"puremourning/vimspector",
 })
