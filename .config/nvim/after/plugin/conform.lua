@@ -24,6 +24,7 @@ conform.setup({
 		typescript = { "prettier" },
 		typescriptreact = { "prettier" },
 		markdown = { "prettier" },
+		json = { "prettier" },
 		go = { "gofumpt" },
 		sql = { "sqlfmt" },
 	},
