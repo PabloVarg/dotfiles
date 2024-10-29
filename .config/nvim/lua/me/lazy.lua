@@ -31,7 +31,7 @@ require("lazy").setup({
 	"stevearc/oil.nvim",
 
 	{ "theprimeagen/git-worktree.nvim" },
-	{ "theprimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" }, commit = "e76cb03" },
+	{ "theprimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "theprimeagen/refactoring.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
 
 	{
