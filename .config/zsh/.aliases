@@ -36,6 +36,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 alias df='df -H'
+alias cc='clear'
 
 # Utils
 alias ports='ss -tulanp'
