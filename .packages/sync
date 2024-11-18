@@ -50,6 +50,7 @@ sound=(
 xorg=(
     "xorg-server"
     "xorg-xinit"
+    "xorg-xrandr"
 )
 
 gui=(
