@@ -24,12 +24,13 @@ require("lazy").setup({
 	"tpope/vim-dispatch",
 	"tpope/vim-projectionist",
 	"airblade/vim-rooter",
-	"junegunn/vim-easy-align",
 	"voldikss/vim-floaterm",
 	"vim-test/vim-test",
 	"mattn/emmet-vim",
 	"folke/zen-mode.nvim",
 	"stevearc/oil.nvim",
+
+	{ "echasnovski/mini.nvim", version = "*" },
 
 	{ "theprimeagen/git-worktree.nvim" },
 	{ "theprimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
