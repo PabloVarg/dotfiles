@@ -57,6 +57,7 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter-refactor", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 	{ "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "Wansmer/treesj", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{
