@@ -29,6 +29,7 @@ require("lazy").setup({
 	"mattn/emmet-vim",
 	"folke/zen-mode.nvim",
 	"stevearc/oil.nvim",
+	"stevearc/dressing.nvim",
 
 	{ "echasnovski/mini.nvim", version = "*" },
 
@@ -75,7 +76,6 @@ require("lazy").setup({
 
 	"mfussenegger/nvim-lint",
 	"stevearc/conform.nvim",
-	"stevearc/dressing.nvim",
 
 	"puremourning/vimspector",
 
