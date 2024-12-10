@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ import = "plugins" },
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 
 	"nvim-lualine/lualine.nvim",
 	"christoomey/vim-tmux-navigator",
