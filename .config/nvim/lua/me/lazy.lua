@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ import = "plugins" },
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 
 	"nvim-lualine/lualine.nvim",
@@ -30,8 +31,6 @@ require("lazy").setup({
 	"folke/zen-mode.nvim",
 	"stevearc/oil.nvim",
 	"stevearc/dressing.nvim",
-
-	{ "echasnovski/mini.nvim", version = "*" },
 
 	{ "theprimeagen/git-worktree.nvim" },
 	{ "theprimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
