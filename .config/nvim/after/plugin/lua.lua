@@ -7,5 +7,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		vim.keymap.set("n", "<leader>eu", ":source %<CR>")
 	end,
 })
-
-print("test")
