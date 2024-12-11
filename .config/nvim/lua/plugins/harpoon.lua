@@ -4,8 +4,7 @@ return {
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			vim.api.nvim_create_autocmd({ "User" }, {
-				pattern = "RooterChDir",
+			vim.api.nvim_create_autocmd({ "DirChanged" }, {
 				group = vim.api.nvim_create_augroup("harpoon", {}),
 				callback = function()
 					local harpoon = require("harpoon")
