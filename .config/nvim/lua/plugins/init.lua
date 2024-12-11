@@ -1,6 +1,6 @@
 return {
 	{
-		"stevearc/dressing.nvim",
+		{ "stevearc/dressing.nvim", event = "VeryLazy" },
 		"christoomey/vim-tmux-navigator",
 		"tpope/vim-commentary",
 		"tpope/vim-repeat",
