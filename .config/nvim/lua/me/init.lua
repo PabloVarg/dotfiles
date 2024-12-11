@@ -1,3 +1,4 @@
+require("me.filetypes")
 require("me.commads")
 require("me.remaps")
 require("me.sets")
