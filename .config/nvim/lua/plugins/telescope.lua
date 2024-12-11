@@ -2,8 +2,9 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		config = function()
+			local builtin = require("telescope.builtin")
 			local actions = require("telescope.actions")
 			local action_state = require("telescope.actions.state")
 
@@ -14,8 +15,6 @@ return {
 				actions.close(prompt_bufnr)
 			end
 
-			require("telescope").load_extension("refactoring")
-			require("telescope").load_extension("git_worktree")
 			require("telescope").setup({
 				defaults = {
 					layout_strategy = "center",
@@ -37,10 +36,13 @@ return {
 					find_files = {
 						no_ignore = true,
 					},
+				extensions = {
+					fzf = {},
 				},
 			})
-
-			local builtin = require("telescope.builtin")
+			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("refactoring")
+			require("telescope").load_extension("git_worktree")
 
 			vim.keymap.set("n", "<leader>b", builtin.buffers)
 			vim.keymap.set("n", "<leader>tp", builtin.git_files)
