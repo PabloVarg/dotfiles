@@ -6,16 +6,27 @@ return {
 			build = "make install_jsregexp",
 			dependencies = { "rafamadriz/friendly-snippets" },
 		},
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-nvim-lua",
-		"hrsh7th/nvim-cmp",
-		"saadparwaiz1/cmp_luasnip",
 		{
 			"VonHeikemen/lsp-zero.nvim",
+			dependencies = {
+				"williamboman/mason.nvim",
+				"williamboman/mason-lspconfig.nvim",
+				"neovim/nvim-lspconfig",
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-nvim-lua",
+				"hrsh7th/nvim-cmp",
+				"saadparwaiz1/cmp_luasnip",
+				{
+					"folke/lazydev.nvim",
+					ft = "lua",
+					opts = {
+						library = {
+							{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+						},
+					},
+				},
+			},
 			branch = "v3.x",
 			config = function()
 				require("luasnip.loaders.from_vscode").lazy_load()
@@ -57,13 +68,10 @@ return {
 
 				require("mason").setup({})
 				require("mason-lspconfig").setup({
+					automatic_installation = false,
 					ensure_installed = { "lua_ls" },
 					handlers = {
 						lsp_zero.default_setup,
-						lua_ls = function()
-							local lua_opts = lsp_zero.nvim_lua_ls()
-							require("lspconfig").lua_ls.setup(lua_opts)
-						end,
 					},
 				})
 
@@ -85,7 +93,7 @@ return {
 						["<F4>"] = cmp_action.luasnip_jump_forward(),
 						["<S-F4>"] = cmp_action.luasnip_jump_backward(),
 					}),
-					formatting = lsp_zero.cmp_format(),
+					formatting = lsp_zero.cmp_format({}),
 					preselect = "item",
 					completion = {
 						completeopt = "menu,menuone,noinsert",
