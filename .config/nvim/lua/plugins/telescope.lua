@@ -10,7 +10,7 @@ return {
 			local multigrep = require("telescope.multigrep")
 
 			local copy_selection = function(prompt_bufnr)
-				local entry = action_state.get_selected_entry(prompt_bufnr)
+				local entry = action_state.get_selected_entry()
 
 				vim.fn.setreg("+", entry.value)
 				actions.close(prompt_bufnr)
