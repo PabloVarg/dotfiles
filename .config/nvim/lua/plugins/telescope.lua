@@ -7,6 +7,7 @@ return {
 			local builtin = require("telescope.builtin")
 			local actions = require("telescope.actions")
 			local action_state = require("telescope.actions.state")
+			local multigrep = require("telescope.multigrep")
 
 			local copy_selection = function(prompt_bufnr)
 				local entry = action_state.get_selected_entry(prompt_bufnr)
@@ -49,6 +50,7 @@ return {
 			vim.keymap.set("n", "<leader>tp", builtin.git_files)
 			vim.keymap.set("n", "<leader>F", builtin.live_grep)
 			vim.keymap.set("x", "<leader>F", builtin.grep_string)
+			vim.keymap.set("n", "<leader><leader>F", multigrep.multigrep)
 			vim.keymap.set("n", "<leader>to", builtin.oldfiles)
 			vim.keymap.set("n", "<leader>tx", builtin.commands)
 			vim.keymap.set("n", "<leader>h", builtin.command_history)
