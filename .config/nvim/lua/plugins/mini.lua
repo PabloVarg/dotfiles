@@ -16,6 +16,7 @@ return {
 					replace = "sc",
 				},
 				n_lines = 1000,
+				search_method = "cover_or_next",
 			})
 		end,
 	},
