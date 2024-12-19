@@ -9,8 +9,8 @@ function Terminal:toggle(width_percentage, height_percentage)
 		return
 	end
 
-	local width = vim.o.columns * width_percentage
-	local height = vim.o.lines * height_percentage
+	local width = math.floor(vim.o.columns * width_percentage)
+	local height = math.floor(vim.o.lines * height_percentage)
 	local col = math.floor((vim.o.columns - width) / 2)
 	local row = math.floor((vim.o.lines - height) / 2)
 	local opts = {
