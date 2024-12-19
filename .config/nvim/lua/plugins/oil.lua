@@ -11,6 +11,7 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>-", require("oil").toggle_float, { silent = true })
+			vim.keymap.set("n", "-", require("oil").open, { silent = true })
 		end,
 	},
 }
