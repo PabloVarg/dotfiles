@@ -1,4 +1,5 @@
 local Terminal = {
+	min_width = 0,
 	buf = -1,
 	win = -1,
 }
@@ -9,7 +10,7 @@ function Terminal:toggle(width_percentage, height_percentage)
 		return
 	end
 
-	local width = math.floor(vim.o.columns * width_percentage)
+	local width = math.max(math.floor(vim.o.columns * width_percentage), 100)
 	local height = math.floor(vim.o.lines * height_percentage)
 	local col = math.floor((vim.o.columns - width) / 2)
 	local row = math.floor((vim.o.lines - height) / 2)
@@ -38,6 +39,10 @@ function Terminal:toggle(width_percentage, height_percentage)
 
 	self.buf = buf
 	self.win = win
+end
+
+function Terminal:setup(opts)
+	self.min_width = opts.min_width or 100
 end
 
 return Terminal
