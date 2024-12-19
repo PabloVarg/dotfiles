@@ -4,6 +4,6 @@ return {
 		"christoomey/vim-tmux-navigator",
 		"tpope/vim-commentary",
 		"theprimeagen/git-worktree.nvim",
-		"mattn/emmet-vim",
+		{ "mattn/emmet-vim", ft = "html,css" },
 	},
 }
