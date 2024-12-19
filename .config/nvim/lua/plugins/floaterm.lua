@@ -8,7 +8,7 @@ return {
 			floaterm:setup({})
 
 			vim.keymap.set({ "n", "t" }, "<C-t>", function()
-				floaterm:toggle(0.6, 0.6)
+				floaterm:toggle(0.5, 0.5)
 			end)
 		end,
 	},
