@@ -68,6 +68,7 @@ bindkey "^[[1;5D" backward-word
 bindkey "^H"      backward-kill-word
 bindkey "^X^e"    edit-command-line
 bindkey "^R"      history-incremental-pattern-search-backward
+bindkey "^[l"     clear-screen
 
 # History
 HISTSIZE=1000
