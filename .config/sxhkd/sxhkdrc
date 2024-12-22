@@ -9,9 +9,6 @@ super + shift + Return
 super + e
     $TERMINAL -e $EDITOR
 
-super + control + e
-    code
-
 super + i
     $TERMINAL -c floating -e $RESOURCES
 
