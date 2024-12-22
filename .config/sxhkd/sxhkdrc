@@ -4,7 +4,7 @@ super + Return
     $TERMINAL
 
 super + shift + Return
-    $TERMINAL -c floating
+    TMUX_TARGET=scraptchpad $TERMINAL -c floating
 
 super + e
     $TERMINAL -e $EDITOR

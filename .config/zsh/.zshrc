@@ -102,7 +102,7 @@ fi
 
 # Tmux
 if command -v tmux &> /dev/null && [ -z $TMUX ]&& [ -z $INSIDE_EMACS ] && [ -z $VIMRUNTIME ] && [ $DISPLAY ]; then
-    tmux attach -t terminal || tmux new -s terminal && exit
+    tmux attach -t "${TMUX_TARGET:-terminal}" || tmux new -s "${TMUX_TARGET:-terminal}" && exit
 fi
 
 # Ssh agent
