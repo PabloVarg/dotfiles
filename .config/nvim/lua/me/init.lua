@@ -1,5 +1,5 @@
 require("me.filetypes")
-require("me.commads")
+require("me.commands")
 require("me.remaps")
 require("me.sets")
 require("me.lazy")

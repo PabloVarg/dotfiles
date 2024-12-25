@@ -1,4 +1,4 @@
-local augroup = vim.api.nvim_create_augroup("base", {})
+local augroup = vim.api.nvim_create_augroup("base", { clear = true })
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	group = augroup,
