@@ -16,13 +16,14 @@ function! g:Open_browser_incognito(url)
     silent exec "Start! $BROWSER --private-window " . a:url
 endfunction
 ]])
-
-			local augroup = vim.api.nvim_create_augroup("markdown", {})
-
 			vim.api.nvim_create_autocmd({ "Filetype" }, {
-				group = augroup,
+				group = vim.api.nvim_create_augroup("markdown", { clear = true }),
 				pattern = "markdown",
-				command = [[noremap <leader>tv :MarkdownPreviewToggle<CR>]],
+				callback = function(ev)
+					vim.keymap.set("n", "<leader>tv", function()
+						vim.cmd([[MarkdownPreviewToggle]])
+					end, { buffer = ev.buf })
+				end,
 			})
 		end,
 	},
