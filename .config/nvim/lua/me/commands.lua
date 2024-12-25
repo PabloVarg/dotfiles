@@ -6,10 +6,18 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	command = [[:silent! !]],
 })
 
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+	group = augroup,
+	command = [[tabdo wincmd =]],
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = augroup,
 	pattern = "*",
-	command = [[setlocal formatoptions -=ro]],
+	callback = function()
+		vim.opt_local.formatoptions:remove("o")
+		vim.opt_local.formatoptions:remove("r")
+	end,
 })
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -19,12 +27,5 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({
 			timeout = 50,
 		})
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-	group = augroup,
-	callback = function()
-		vim.cmd("tabdo wincmd =")
 	end,
 })
