@@ -19,7 +19,7 @@ super + v
     $TERMINAL -c floating -e $FILE
 
 super + p
-    dmenu_run -i -c
+    dmenu_run -i
 
 super + n
     $BROWSER
