@@ -1,6 +1,6 @@
 setopt PROMPT_SUBST
 
-DIR="%{$fg_bold[yellow]%}%1~/"
+DIR="%{$fg_bold[blue]%}%1~/"
 SUFFIX="%{$reset_color%}"
 
 ICON_INS="%{$fg_bold[white]%}"
