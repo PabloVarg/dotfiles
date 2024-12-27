@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+set -euo pipefail
+
+machines=$(virsh net-dhcp-leases --network default | tail -n +3 | awk '{
+    gsub("/.*", "", $5)
+    if ($5 != "" && $6 != "") print $5 " " $6
+}')
+
+machine_selection=$(prompt_open "Connect to:" "$machines" | cut -d' ' -f1)
+user_selection=$(prompt_open "User to use:")
+
+echo $machine_selection $user_selection
+
+st -e ssh -t "${user_selection}"@"${machine_selection}"
