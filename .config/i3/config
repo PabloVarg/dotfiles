@@ -171,10 +171,10 @@ mode "move" {
 bindsym $mod+m mode "move"
 #===================Colors======================
 # Set colors
-set $red            #FD0000
-set $yellow         #F9D342
-set $grey           #8C8C8C
-set $black          #292826
+set $red            #EA6962
+set $yellow         #D8A657
+set $grey           #7C6F64
+set $black          #1d2021
 set $white          #FFFFFF
 set $transparent    #00000000
 
