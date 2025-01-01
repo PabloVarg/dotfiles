@@ -2,7 +2,7 @@ return {
 	{
 		"vim-test/vim-test",
 		config = function()
-			vim.g["test#strategy"] = "dispatch"
+			vim.g["test#strategy"] = "neovim"
 
 			vim.keymap.set("n", "<leader>TT", vim.cmd.TestFile)
 			vim.keymap.set("n", "<leader>TN", vim.cmd.TestNearest)
