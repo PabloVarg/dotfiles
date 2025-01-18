@@ -27,6 +27,10 @@ intel_cpu=(
     "intel-ucode"
 )
 
+amd_cpu=(
+    "amd-ucode"
+)
+
 gpu=(
     "libva-utils"
     "vdpauinfo"
@@ -114,7 +118,7 @@ gtk_theme=(
 
 packages_to_install=(
     "${base[@]}"
-    "${intel_cpu[@]}"
+    "${amd_cpu[@]}"
     "${gpu[@]}"
     "${nvidia[@]}"
     "${sound[@]}"
