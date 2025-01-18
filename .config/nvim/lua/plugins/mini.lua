@@ -4,7 +4,6 @@ return {
 		version = "*",
 		config = function()
 			require("mini.align").setup()
-			require("mini.pairs").setup()
 			require("mini.bracketed").setup()
 
 			require("mini.ai").setup({
