@@ -3,7 +3,7 @@ set -euo pipefail
 
 machines=$(virsh net-dhcp-leases --network default | tail -n +3 | awk '{
     gsub("/.*", "", $5)
-    if ($5 != "" && $6 != "") print $5 " " $6
+    if ($5 != "" && $6 != "" && $6 != "-") print $5 " " $6
 }')
 
 machine_selection=$(prompt_open "Connect to:" "$machines" | cut -d' ' -f1)
