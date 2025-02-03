@@ -42,8 +42,8 @@ alias cc='clear'
 alias ports='ss -tulanp'
 alias usb='udisksctl mount -b'
 alias usbunmount='udisksctl unmount -b'
-alias vmup='sudo systemctl start libvirtd.service && sudo virsh net-start default && virsh start archlinux-dev'
-alias vmdown='sudo virsh net-destroy default && sudo systemctl stop libvirtd.service'
+alias vup='sudo systemctl start libvirtd.service && sudo virsh net-start default && virsh start archlinux-dev'
+alias vdown='sudo virsh net-destroy default && sudo systemctl stop libvirtd.service'
 
 # Keyboard layouts
 alias aoeu='keyboard qwerty'
