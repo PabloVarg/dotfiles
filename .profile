@@ -8,7 +8,6 @@ export TERMINAL="st"
 export COMPOSITOR="picom"
 export RESOURCES="htop"
 export GPU_RESOURCES="nvtop"
-export MUSIC="spotify"
 export READER="zathura"
 export FILE="lf"
 

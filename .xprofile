@@ -3,7 +3,7 @@
 # Initial programs
 setbg &
 $COMPOSITOR &
-$MUSIC &
+start_spotify &
 sxhkd -m 1 &
 dunst &
 

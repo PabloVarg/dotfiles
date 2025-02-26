@@ -100,7 +100,6 @@ qemu=(
 )
 
 entertainment=(
-    "spotify"
     "firefox"
     "yt-dlp"
 )
