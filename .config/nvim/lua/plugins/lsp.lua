@@ -61,7 +61,7 @@ return {
 					vim.keymap.set("n", "<leader>et", builtin.lsp_document_symbols, opts)
 					vim.keymap.set("n", "<leader>es", builtin.lsp_dynamic_workspace_symbols, opts)
 
-					vim.keymap.set("n", "<leader>ea", vim.lsp.buf.code_action, opts)
+					vim.keymap.set({ "n", "x" }, "<leader>ea", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts)
 					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 				end)
