@@ -4,6 +4,7 @@ local Terminal = {
 	min_width = 0,
 	buf = -1,
 	win = -1,
+	chan = -1,
 }
 
 function Terminal:toggle(opts)
@@ -46,6 +47,7 @@ function Terminal:toggle(opts)
 
 	self.buf = buf
 	self.win = win
+	self.chan = vim.bo.channel
 end
 
 function Terminal:setup(opts)
@@ -55,6 +57,16 @@ function Terminal:setup(opts)
 	self.default_width_p = opts.width_percentage or 0.5
 	self.default_height_p = opts.height_percentage or 0.5
 end
+
+function Terminal:send(opts)
+	opts = opts or {}
+
+	if not vim.api.nvim_win_is_valid(self.win) then
+		self:toggle()
+	end
+	local cmd = opts.cmd or ""
+
+	vim.api.nvim_chan_send(self.chan, cmd .. "\n")
 end
 
 return Terminal
