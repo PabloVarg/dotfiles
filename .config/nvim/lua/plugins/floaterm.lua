@@ -5,10 +5,10 @@ return {
 		config = function()
 			local floaterm = require("floaterm")
 
-			floaterm:setup({})
+			floaterm:setup()
 
 			vim.keymap.set({ "n", "t" }, "<C-t>", function()
-				floaterm:toggle(0.5, 0.5)
+				floaterm:toggle()
 			end)
 		end,
 	},
