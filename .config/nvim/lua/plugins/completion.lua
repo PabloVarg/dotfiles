@@ -24,6 +24,8 @@ return {
 				["<Tab>"] = { "accept", "fallback" },
 				["<F4>"] = { "snippet_forward", "fallback" },
 				["<S-F4>"] = { "snippet_backward", "fallback" },
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			},
 
 			signature = {
