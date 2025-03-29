@@ -42,7 +42,7 @@ return {
 
 				vim.keymap.set("n", "K", function()
 					vim.lsp.buf.hover({
-						border = "single",
+						border = "rounded",
 						relative = "editor",
 					})
 				end, opts)

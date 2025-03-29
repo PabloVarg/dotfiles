@@ -31,7 +31,7 @@ return {
 			signature = {
 				enabled = true,
 				window = {
-					border = "single",
+					border = "rounded",
 					winhighlight = "Normal:Normal,FloatBorder:Normal",
 				},
 			},
@@ -77,12 +77,12 @@ return {
 				documentation = {
 					auto_show = true,
 					window = {
-						border = "single",
+						border = "rounded",
 						winhighlight = "Normal:Normal,FloatBorder:Normal",
 					},
 				},
 				menu = {
-					border = "single",
+					border = "rounded",
 					winhighlight = "Normal:Normal,FloatBorder:Normal",
 					draw = {
 						columns = {

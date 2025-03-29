@@ -36,7 +36,7 @@ function Terminal:toggle(opts)
 	local win_opts = {
 		relative = "editor",
 		style = "minimal",
-		border = "single",
+		border = "rounded",
 		col = dims.col,
 		row = dims.row,
 		width = dims.width,
@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 		vim.api.nvim_win_set_config(Terminal.win, {
 			relative = "editor",
 			style = "minimal",
-			border = "single",
+			border = "double",
 			col = dims.col,
 			row = dims.row,
 			width = dims.width,
