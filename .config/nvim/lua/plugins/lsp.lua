@@ -32,7 +32,7 @@ return {
 				virtual_text = true,
 				update_in_insert = true,
 				severity_sort = true,
-				underline = false,
+				underline = true,
 			})
 
 			local builtin = require("telescope.builtin")
