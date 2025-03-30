@@ -21,6 +21,7 @@ return {
 				["<up>"] = { "select_prev", "fallback" },
 				["<down>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide", "fallback" },
 				["<Tab>"] = { "accept", "fallback" },
 				["<F4>"] = { "snippet_forward", "fallback" },
 				["<S-F4>"] = { "snippet_backward", "fallback" },
