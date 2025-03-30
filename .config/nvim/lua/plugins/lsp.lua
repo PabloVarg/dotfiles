@@ -43,7 +43,6 @@ return {
 				vim.keymap.set("n", "K", function()
 					vim.lsp.buf.hover({
 						border = "rounded",
-						relative = "editor",
 					})
 				end, opts)
 				vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
