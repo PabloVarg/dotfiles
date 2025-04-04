@@ -120,6 +120,12 @@ return {
 						module = "lazydev.integrations.blink",
 						score_offset = 100,
 					},
+					snippets = {
+						score_offset = -50,
+					},
+					buffer = {
+						score_offset = -100,
+					},
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 					path = {
 						opts = {
