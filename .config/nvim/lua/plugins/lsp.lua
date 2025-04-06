@@ -40,13 +40,6 @@ return {
 			lsp_zero.on_attach(function(_, bufnr)
 				local opts = { buffer = bufnr, remap = false }
 
-				vim.keymap.set("n", "K", function()
-					vim.lsp.buf.hover({
-						border = "rounded",
-					})
-				end, opts)
-				vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
-				vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
 				vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
 				vim.keymap.set("n", "gy", builtin.lsp_type_definitions, opts)
 				vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
@@ -60,6 +53,20 @@ return {
 
 				vim.keymap.set({ "n", "x" }, "<leader>ea", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts)
+
+				vim.keymap.set("n", "K", function()
+					vim.lsp.buf.hover({
+						border = "rounded",
+					})
+				end, opts)
+
+				vim.keymap.set("n", "]g", function()
+					vim.diagnostic.jump({ count = 0 - 1, float = true })
+				end, opts)
+
+				vim.keymap.set("n", "[g", function()
+					vim.diagnostic.jump({ count = 0 + 1, float = true })
+				end, opts)
 			end)
 
 			require("mason").setup({})
