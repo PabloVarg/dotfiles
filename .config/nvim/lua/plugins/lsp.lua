@@ -60,7 +60,6 @@ return {
 
 				vim.keymap.set({ "n", "x" }, "<leader>ea", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<leader>er", vim.lsp.buf.rename, opts)
-				vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 			end)
 
 			require("mason").setup({})
