@@ -20,7 +20,9 @@ return {
 				defaults = {
 					layout_strategy = "center",
 					layout_config = {
-						width = 0.5,
+						width = function()
+							return math.max(vim.o.columns * 0.5, math.min(vim.o.columns, 100))
+						end,
 						anchor = "S",
 					},
 					mappings = {
