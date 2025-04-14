@@ -61,11 +61,11 @@ return {
 				end, opts)
 
 				vim.keymap.set("n", "]g", function()
-					vim.diagnostic.jump({ count = 0 - 1, float = true })
+					vim.diagnostic.jump({ count = 0 + 1, float = true })
 				end, opts)
 
 				vim.keymap.set("n", "[g", function()
-					vim.diagnostic.jump({ count = 0 + 1, float = true })
+					vim.diagnostic.jump({ count = 0 - 1, float = true })
 				end, opts)
 			end)
 
