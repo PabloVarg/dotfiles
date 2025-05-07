@@ -15,7 +15,7 @@ return {
 					return { async = true, timeout_ms = 1500, lsp_format = "fallback" }
 				end,
 				formatters_by_ft = {
-					["*"] = {
+					["_"] = {
 						"trim_whitespace",
 						"trim_newlines",
 					},
