@@ -21,7 +21,7 @@ return {
 					},
 					lua = { "stylua" },
 					rust = { "rustfmt" },
-					python = { "black" },
+					python = { "ruff_format", "black", stop_after_first = true },
 					java = { "google_java_format" },
 					javascript = { "prettierd", "prettier", stop_after_first = true },
 					javascriptreact = { "prettierd", "prettier", stop_after_first = true },
