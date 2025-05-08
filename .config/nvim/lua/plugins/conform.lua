@@ -7,12 +7,12 @@ return {
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 			conform.setup({
-				format_on_save = function(bufnr)
+				format_after_save = function(bufnr)
 					-- Disable with a global or buffer-local variable
 					if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 						return
 					end
-					return { async = true, timeout_ms = 1500, lsp_format = "fallback" }
+					return { timeout_ms = 1500, lsp_format = "fallback" }
 				end,
 				formatters_by_ft = {
 					["_"] = {
