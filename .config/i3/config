@@ -96,8 +96,8 @@ bindsym $mod+Shift+4 move container to workspace $ws9
 bindsym $mod+Shift+6 move container to workspace $ws10
 
 #Assign Aplications certain workspaces
-for_window [class="^spotify$"] move scratchpad, resize set 70 ppt 70 ppt, move absolute position center
-for_window [class="^floating$"] floating enable, resize set 60 ppt 60 ppt, move absolute position center
+for_window [class="^spotify$"] move output primary, resize set 70 ppt 70 ppt, move position center, move scratchpad
+for_window [class="^floating$"] floating enable, resize set 60 ppt 60 ppt, move position center
 
 #================i3 Functionality=============
 # reload the configuration file
@@ -154,7 +154,7 @@ mode "move" {
     bindsym j move down
     bindsym k move up
     bindsym l move right
-    bindsym c move absolute position center
+    bindsym c move position center
 
     bindsym $mod+h move workspace to output right
     bindsym $mod+l move workspace to output left
