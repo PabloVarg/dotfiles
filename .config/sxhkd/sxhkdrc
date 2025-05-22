@@ -148,3 +148,6 @@ super + {F12, control + numbersign}
 
 super + {h, j, k, l}
     i3-msg focus {left, down, up, right}
+
+super + {comma, period}
+    i3-msg move container to output {left, right}
