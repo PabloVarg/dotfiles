@@ -7,6 +7,7 @@ base=(
     "base-devel"
     "grub"
     "os-prober"
+    "efibootmgr"
     "git"
     "man-db"
     "yay-bin"
@@ -32,8 +33,6 @@ amd_cpu=(
 )
 
 gpu=(
-    "libva-utils"
-    "vdpauinfo"
     "nvtop"
 )
 
@@ -42,11 +41,14 @@ nvidia=(
     "nvidia-utils"
     "nvidia-settings"
     "libva-nvidia-driver"
+    "libva-utils"
+    "vdpauinfo"
 )
 
 sound=(
     "pavucontrol"
     "alsa-utils"
+    "pulseaudio"
     "pulseaudio-alsa"
     "playerctl"
 )
@@ -55,6 +57,7 @@ xorg=(
     "xorg-server"
     "xorg-xinit"
     "xorg-xrandr"
+    "xorg-xinput"
 )
 
 gui=(
@@ -68,7 +71,7 @@ gui=(
 
 utilities=(
     "htop"
-    "lf-bin"
+    "lf"
     "sxiv"
     "zathura-pdf-mupdf"
     "mpv"
@@ -119,7 +122,6 @@ packages_to_install=(
     "${base[@]}"
     "${amd_cpu[@]}"
     "${gpu[@]}"
-    "${nvidia[@]}"
     "${sound[@]}"
     "${xorg[@]}"
     "${gui[@]}"
