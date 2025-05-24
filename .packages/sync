@@ -137,8 +137,6 @@ packages_to_install=(
     "${gtk_theme[@]}"
 )
 
-packages_ensure_uninstalled=()
-
 ensure_aur_pkg_is_installed() {
     repo_dir="${1}"
     repo_url="${2}"
@@ -197,11 +195,43 @@ ensure_slock_is_installed() {
     ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
 }
 
+sync_packages() {
+    tmp_dir=$(mktemp -d)
+    tmp_a=$(mktemp -p "${tmp_dir}")
+    tmp_b=$(mktemp -p "${tmp_dir}")
 
-# AUR packages
+    # Write contents to temporary files
+    yay -Qqe > "${tmp_a}"
+    printf "${packages_to_install[*]}" | tr ' ' '\n' | sort > "${tmp_b}"
+
+    # Install needed packages
+    mapfile -t packages_to_add < <(comm -13 "${tmp_a}" "${tmp_b}")
+    if [[ -n "${packages_to_add[@]}" ]]; then
+        echo "Installing missing packages ==========================="
+        yay -Sy
+        yay -S "${packages_to_add[@]}"
+    fi
+
+    # Remove old packages
+    mapfile -t packages_to_remove < <(comm -23 "${tmp_a}" "${tmp_b}")
+    if [[ -n "${packages_to_remove[@]}" ]]; then
+        echo "Removing packages not needed anymore =================="
+        yay -Rns "${packages_to_remove[@]}"
+    fi
+
+    # Remove orphaned packages
+    mapfile -t orphaned_packages < <(yay -Qdtq)
+    if [[ -n "${orphaned_packages[@]}" ]]; then
+        echo "Removing orphaned packages ============================"
+        yay -Rns "${orphaned_packages[@]}"
+    fi
+
+    rm -rf "${tmp_dir}"
+}
+
+# Manage packages
 ensure_yay_is_installed
-[[ "${#packages_to_install[@]}" != "0" ]] && yay -Syy --needed "${packages_to_install[@]}"
-[[ "${#packages_ensure_uninstalled[@]}" != "0" ]] && yay -Rns "${packages_ensure_uninstalled[@]}"
+sync_packages
 
 # Manual packages
 ensure_st_is_installed
