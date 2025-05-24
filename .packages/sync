@@ -200,6 +200,8 @@ sync_packages() {
     tmp_a=$(mktemp -p "${tmp_dir}")
     tmp_b=$(mktemp -p "${tmp_dir}")
 
+    trap 'rm -rf "${tmp_dir}"' EXIT
+
     # Write contents to temporary files
     yay -Qqe > "${tmp_a}"
     printf "${packages_to_install[*]}" | tr ' ' '\n' | sort > "${tmp_b}"
@@ -225,8 +227,6 @@ sync_packages() {
         echo "Removing orphaned packages ============================"
         yay -Rns "${orphaned_packages[@]}"
     fi
-
-    rm -rf "${tmp_dir}"
 }
 
 # Manage packages
