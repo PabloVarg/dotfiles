@@ -3,6 +3,8 @@ set -euo pipefail
 
 
 base=(
+    "linux"
+    "linux-firmware"
     "base"
     "base-devel"
     "grub"
@@ -103,6 +105,7 @@ qemu=(
 )
 
 entertainment=(
+    "ttf-dejavu"
     "firefox"
     "yt-dlp"
 )
