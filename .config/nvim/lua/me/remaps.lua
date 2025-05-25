@@ -86,3 +86,11 @@ vim.keymap.set("n", "<C-p>", function()
 		return
 	end
 end)
+
+-- Advanced utilities
+vim.keymap.set("n", "<leader>L", function()
+	local file = vim.fn.expand("%")
+	local line = vim.fn.line(".")
+	vim.fn.setreg("+", string.format("%s:%d", file, line))
+	vim.notify("Copied line reference to clipboard")
+end, { desc = "Copy line reference to clipboard" })
