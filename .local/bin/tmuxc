@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+set -euo pipefail
+
+sessions=$(tmux list-sessions)
+selected_session=$(prompt_open "Attach to:" "$sessions" | cut -d' ' -f1)
+
+TMUX_TARGET="${selected_session}" st
