@@ -34,7 +34,6 @@ create_bun_symlinks() {
     create_bunx_symlink
 }
 
-
 stow_dotfiles() {
     stow --restow .
     create_bun_symlinks
@@ -53,4 +52,5 @@ while getopts "ps" flag; do
             ;;
     esac
 done
+
 [[ $# = "0" ]] && usage || echo "Done!"
