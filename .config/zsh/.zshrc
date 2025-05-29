@@ -101,6 +101,6 @@ if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 fi
 
 # Tmux
-if command -v tmux &> /dev/null && [ -z $TMUX ] && [ -z $INSIDE_EMACS ] && [ -z $VIMRUNTIME ] && [[ -z $XDG_VTNR || $DISPLAY ]]; then
+if command -v tmux &> /dev/null && [ -z $TMUX ] && [ -z $INSIDE_EMACS ] && [ -z $VIMRUNTIME ] && [[ -z $XDG_VTNR || $DISPLAY ]] && [ -z $lf ]; then
     tmux attach -t "${TMUX_TARGET:-terminal}" || tmux new -s "${TMUX_TARGET:-terminal}" && exit
 fi
