@@ -109,7 +109,6 @@ qemu=(
 entertainment=(
     "ttf-dejavu"
     "firefox"
-    "chromium"
     "yt-dlp"
 )
 
