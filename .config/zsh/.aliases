@@ -2,7 +2,7 @@
 alias _='sudo'
 alias vim='nvim'
 alias e='vim'
-alias update='yay -Syyu'
+alias update='yay -Syyu && clean'
 alias clean='yay -Sc --noconfirm'
 
 # Colors
