@@ -211,7 +211,10 @@ sync_packages() {
     # Install needed packages
     mapfile -t packages_to_add < <(comm -13 "${tmp_a}" "${tmp_b}")
     if [[ -n "${packages_to_add[@]}" ]]; then
-        echo "Installing missing packages ==========================="
+        echo "╭──────── Script step ────────╮"
+        echo "│ Installing missing packages │"
+        echo "╰─────────────────────────────╯"
+
         yay -Sy
         yay -S "${packages_to_add[@]}"
     fi
@@ -219,14 +222,20 @@ sync_packages() {
     # Remove old packages
     mapfile -t packages_to_remove < <(comm -23 "${tmp_a}" "${tmp_b}")
     if [[ -n "${packages_to_remove[@]}" ]]; then
-        echo "Removing packages not needed anymore =================="
+        echo "╭──────────── Script step ─────────────╮"
+        echo "│ Removing packages not needed anymore │"
+        echo "╰──────────────────────────────────────╯"
+
         yay -Rns "${packages_to_remove[@]}"
     fi
 
     # Remove orphaned packages
     mapfile -t orphaned_packages < <(yay -Qdtq)
     if [[ -n "${orphaned_packages[@]}" ]]; then
-        echo "Removing orphaned packages ============================"
+        echo "╭─────── Script step ────────╮"
+        echo "│ Removing orphaned packages │"
+        echo "╰────────────────────────────╯"
+
         yay -Rns "${orphaned_packages[@]}"
     fi
 }

@@ -53,4 +53,8 @@ while getopts "ps" flag; do
     esac
 done
 
-[[ $# = "0" ]] && usage || echo "Done!"
+[[ $# = "0" ]] && usage && exit
+
+echo "╭── Script step ───╮"
+echo "│       DONE       │"
+echo "╰──────────────────╯"
