@@ -149,6 +149,7 @@ ensure_aur_pkg_is_installed() {
 
     git clone "${repo_url}" "${repo_dir}"
     (cd "${repo_dir}" && makepgk -si)
+    (cd "${repo_dir}" && makepkg -si)
     rm -rf "${repo_dir}"
 }
 
