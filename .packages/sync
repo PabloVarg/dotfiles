@@ -26,11 +26,7 @@ base=(
     "stow"
 )
 
-intel_cpu=(
-    "intel-ucode"
-)
-
-amd_cpu=(
+cpu=(
     "amd-ucode"
 )
 
@@ -125,7 +121,7 @@ gtk_theme=(
 
 packages_to_install=(
     "${base[@]}"
-    "${amd_cpu[@]}"
+    "${cpu[@]}"
     "${gpu[@]}"
     "${sound[@]}"
     "${xorg[@]}"
