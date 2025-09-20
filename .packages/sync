@@ -147,8 +147,7 @@ ensure_aur_pkg_is_installed() {
         return
     fi
 
-    git clone "${repo_url}" "${repo_dir}"
-    (cd "${repo_dir}" && makepgk -si)
+    [[ ! -d "${repo_dir}" ]] && git clone "${repo_url}" "${repo_dir}"
     (cd "${repo_dir}" && makepkg -si)
     rm -rf "${repo_dir}"
 }
@@ -167,8 +166,11 @@ ensure_suckless_pkg_is_installed() {
 
 
 ensure_yay_is_installed() {
+    tmp_dir=$(mktemp -d)
+    trap 'rm -rf "${tmp_dir}"' EXIT
+
     pkg_name="yay"
-    repo_dir="${SYSTEM_PROJECTS}/yay-bin"
+    repo_dir="${tmp_dir}/yay-bin"
     repo_url="https://aur.archlinux.org/yay-bin.git"
 
     ensure_aur_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
