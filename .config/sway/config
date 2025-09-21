@@ -80,7 +80,7 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+Return exec TMUX_TARGET=scraptchpad $TERMINAL -c floating
 
 # TUI's
-bindsym $mod+p exec dmenu_run -i -c
+bindsym $mod+p exec prompt_run
 bindsym $mod+e exec $TERMINAL -e $EDITOR
 bindsym $mod+i exec $TERMINAL -c floating -e $RESOURCES
 bindsym $mod+Shift+i exec $TERMINAL -c floating -e $GPU_RESOURCES

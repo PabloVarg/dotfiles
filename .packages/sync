@@ -45,6 +45,7 @@ sway=(
     "swaybg"
     "swaylock"
     "waybar"
+    "wmenu"
     "wl-clipboard"
     "slurp"
     "grim"
@@ -167,22 +168,6 @@ ensure_st_is_installed() {
     ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
 }
 
-ensure_dmenu_is_installed() {
-    pkg_name="dmenu"
-    repo_dir="${SYSTEM_PROJECTS}/dmenu"
-    repo_url="https://github.com/PabloVarg/dmenu"
-
-    ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
-}
-
-ensure_slock_is_installed() {
-    pkg_name="slock"
-    repo_dir="${SYSTEM_PROJECTS}/slock"
-    repo_url="https://github.com/PabloVarg/slock"
-
-    ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
-}
-
 sync_packages() {
     tmp_dir=$(mktemp -d)
     tmp_a=$(mktemp -p "${tmp_dir}")
@@ -241,5 +226,3 @@ sync_packages
 
 # Manual packages
 ensure_st_is_installed
-ensure_dmenu_is_installed
-ensure_slock_is_installed
