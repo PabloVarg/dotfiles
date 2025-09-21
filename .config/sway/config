@@ -168,6 +168,9 @@ bindsym $mod+Shift+parenright   move container to workspace $ws8
 bindsym $mod+Shift+plus         move container to workspace $ws9
 bindsym $mod+Shift+bracketright move container to workspace $ws10
 
+workspace $ws1 output DP-1
+workspace $ws10 output HDMI-A-1
+
 #Assign Aplications certain workspaces
 for_window [app_id="spotify"] move output primary, resize set 70 ppt 70 ppt, move position center, move scratchpad
 for_window [class="^floating$"] floating enable, resize set 60 ppt 60 ppt, move position center
