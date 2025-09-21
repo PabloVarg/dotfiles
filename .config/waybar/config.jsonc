@@ -20,19 +20,20 @@
         "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
-            "1":"1",
-            "2":"2",
-            "3":"3",
-            "4":"4",
-            "5":"5",
-            "6":"6",
-            "7":"7",
-            "8":"8",
-            "9":"9",
-            "10":"0"
+            "1":"𝟙",
+            "2":"𝟚",
+            "3":"𝟛",
+            "4":"𝟜",
+            "5":"𝟝",
+            "6":"𝟞",
+            "7":"𝟟",
+            "8":"𝟠",
+            "9":"𝟡",
+            "10":"𝟘"
         }
     },
     "sway/window": {
+        "format": "♚ {title}",
         "max-length": 30,
         "icon": false,
         "icon-size": 12
@@ -41,17 +42,17 @@
         "capslock": true,
         "format": "{icon}",
         "format-icons": {
-            "locked": "●",
+            "locked": "🂠",
             "unlocked": ""
         }
     },
     "clock": {
-        "format": "μ {:%R (%Y) %B %d}"
+        "format": "☯ {:%R (%Y) %B %d}"
     },
     "network": {
-        "format-wifi": "🌐 {essid} ({signalStrength}%)",
-        "format-ethernet": "🌐 {ipaddr}",
-        "format-linked": "🌐 {ifname} (No IP)",
-        "format-disconnected": "🌐 Disconnected",
+        "format-wifi": "{essid} ({signalStrength}%) 🌐",
+        "format-ethernet": "{ipaddr} 🌐",
+        "format-linked": "{ifname} (No IP) 🌐",
+        "format-disconnected": "Disconnected 🌐",
     }
 }
