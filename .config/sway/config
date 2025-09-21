@@ -201,6 +201,12 @@ input type:keyboard {
     xkb_variant "dvp"
 }
 
+# Mice configuration
+input type:pointer {
+    accel_profile "flat"
+    pointer_accel 0.3
+}
+
 # Touchpads configuration
 input type:touchpad {
     dwt enabled
