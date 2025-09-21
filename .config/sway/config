@@ -122,15 +122,15 @@ bindsym $mod+F7  exec playerctl play-pause
 bindsym $mod+F8  exec playerctl next
 bindsym $mod+F12 exec $TERMINAL -c floating -e python
 
-bindsym $mod+Control+ampersand    start_spotify
-bindsym $mod+Control+bracketleft  change_volume down 1
-bindsym $mod+Control+braceleft    change_volume up 1
-bindsym $mod+Control+braceright   change_volume toggle
-bindsym $mod+Control+parenleft    playerctl stop
-bindsym $mod+Control+equal        playerctl previous
-bindsym $mod+Control+asterisk     playerctl play-pause
-bindsym $mod+Control+parenright   playerctl next
-bindsym $mod+Control+bracketright $TERMINAL -c floating -e python
+bindsym $mod+Control+ampersand    exec start_spotify
+bindsym $mod+Control+bracketleft  exec change_volume down 1
+bindsym $mod+Control+braceleft    exec change_volume up 1
+bindsym $mod+Control+braceright   exec change_volume toggle
+bindsym $mod+Control+parenleft    exec playerctl stop
+bindsym $mod+Control+equal        exec playerctl previous
+bindsym $mod+Control+asterisk     exec playerctl play-pause
+bindsym $mod+Control+parenright   exec playerctl next
+bindsym $mod+Control+bracketright exec $TERMINAL -c floating -e python
 
 #===================Workspaces=================
 set $ws1 "1"
