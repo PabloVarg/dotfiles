@@ -1,0 +1,77 @@
+* {
+    font-family: "Fira Code";
+    font-size: 14px;
+    background-color: rgba(29, 32, 33, 0.85);
+    color: #d4be98;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#keyboard-state,
+#mpd {
+    padding: 0 10px;
+}
+
+#window label {
+    color: #7daea3;
+}
+
+#keyboard-state label {
+    color: #ea6962;
+}
+
+#workspaces {
+    margin: 0 4px;
+    color: #e78a4e;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    border: 0;
+}
+
+#workspaces button:hover {
+    padding: 0;
+    border: 0;
+}
+
+#workspaces button.focused label {
+    color: #e78a4e;
+}
+
+#workspaces button.urgent label {
+    color: #1d2021;
+}
+
+#mode {
+    color: #1d2021;
+    background-color: #a9b665;
+}
+
+#network {
+    color: #a9b665;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}

@@ -1,14 +1,15 @@
-#! /bin/bash
+#! /usr/bin/env bash
+set -exuo pipefail
 
-DEST_DIR="${XDG_CACHE_HOME}/xwallpaper"
+DEST_DIR="${XDG_CACHE_HOME}/wallpaper"
 DEST="${DEST_DIR}/wallpaper"
 msgId="991048"
 
 [ -d "$DEST" ] || mkdir -p "${DEST_DIR}"
 
-[ -f "$1" ] && cp "$1" $DEST && dunstify -r $msgId -i $DEST "Wallpaper changed."
+[ -f "$1" ] && cp "$1" $DEST
 
-[ -d "$1" ] && cp "$(find "$1" -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -type f | shuf -n 1)" \
-                  $DEST && dunstify -r $msgId -i $DEST "Random Wallpaper chosen."
+[ -d "$1" ] && cp "$(find "$1" -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -type f | shuf -n 1)" $DEST
 
-xwallpaper --zoom $DEST
+swaymsg "output * bg \"${DEST}\" fill"
+dunstify -r $msgId -i $DEST "Wallpaper changed"

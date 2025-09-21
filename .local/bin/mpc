@@ -4,7 +4,7 @@
 set -euo pipefail
 
 
-url="${1:-$(xclip -selection clipboard -out)}"
+url="${1:-$(wl-paste)}"
 
 
 mpv "${url}"

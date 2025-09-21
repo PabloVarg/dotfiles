@@ -1,7 +1,14 @@
-#! /bin/bash
+#! /usr/bin/env bash
+set -euo pipefail
 
 VALUES=({1000..6500..250})
 
 RESPONSE=$(prompt_open "Redshift:" "$(printf "%s\n" "${VALUES[@]}")")
 
-redshift -P -O $RESPONSE > /dev/null 2>&1
+if [[ "${RESPONSE}" = "6500" ]]; then
+    pgrep gammastep && pkill gammastep
+    exit
+fi
+
+pgrep gammastep && pkill gammastep
+gammastep -P -O $RESPONSE > /dev/null 2>&1

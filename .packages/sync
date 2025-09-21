@@ -15,12 +15,8 @@ base=(
     "yay-bin"
     "networkmanager"
     "unzip"
-    "maim"
-    "xclip"
-    "sxhkd"
     "openssh"
     "libnotify"
-    "xcape"
     "ufw"
     "lm_sensors"
     "stow"
@@ -53,19 +49,19 @@ sound=(
     "pavucontrol"
 )
 
-xorg=(
-    "xorg-server"
-    "xorg-xinit"
-    "xorg-xrandr"
-    "xorg-xinput"
+sway=(
+    "sway"
+    "swaybg"
+    "swaylock"
+    "waybar"
+    "wl-clipboard"
+    "slurp"
+    "grim"
+    "xorg-xwayland"
 )
 
 gui=(
-    "i3-wm"
-    "polybar"
-    "xwallpaper"
-    "picom"
-    "redshift-minimal"
+    "gammastep"
     "dunst"
 )
 
@@ -76,6 +72,7 @@ utilities=(
     "zathura-pdf-mupdf"
     "mpv"
     "lxappearance"
+    "jq"
 )
 
 terminal=(
@@ -110,7 +107,6 @@ entertainment=(
 
 fonts=(
     "ttf-fira-code"
-    "woff2-font-awesome"
 )
 
 gtk_theme=(
@@ -133,6 +129,7 @@ packages_to_install=(
     "${entertainment[@]}"
     "${fonts[@]}"
     "${gtk_theme[@]}"
+    "${sway[@]}"
 )
 
 ensure_aur_pkg_is_installed() {
@@ -236,6 +233,15 @@ sync_packages() {
         echo "╰────────────────────────────╯"
 
         yay -Rns "${orphaned_packages[@]}"
+    fi
+
+    ## Clean
+    if [[ -n "${orphaned_packages[@]}" ]] || [[ -n "${packages_to_remove[@]}" ]]; then
+        echo "╭── Script step ───╮"
+        echo "│  Clean packages  │"
+        echo "╰──────────────────╯"
+
+        yay -Sc --noconfirm
     fi
 }
 

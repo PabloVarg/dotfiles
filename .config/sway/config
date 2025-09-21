@@ -1,0 +1,292 @@
+#=================SETUP========================
+#Var's
+set $initi 0
+set $inito 0
+set $step  5
+
+set $left  h
+set $right l
+set $up    k
+set $down  j
+
+#Conf
+for_window [class="^.*"] border pixel 0
+title_align center
+gaps inner $initi
+gaps outer $inito
+
+#Windows follow mouse
+focus_follows_mouse no
+
+#================Variables=====================
+set $mod Mod4
+
+#================Fonts=========================
+# Font for window titles, etc.
+font Fira Code 8
+
+#================Startup=======================
+# Empty for now
+exec --no-startup-id dunst
+exec --no-startup-id start_spotify
+
+#==============Windows manipulation============
+# Move your focus around
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# Move containers between outputs
+bindsym $mod+comma move container to output left
+bindsym $mod+period move container to output right
+
+# kill focused window
+bindsym $mod+Shift+semicolon kill
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# enter fullscreen mode for the focused container
+bindsym $mod+u fullscreen toggle
+
+# Focus parent
+bindsym $mod+a focus parent
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#Split toogle
+bindsym $mod+t split horizontal
+bindsym $mod+Shift+t split vertical
+
+# move the currently focused window to the scratchpad
+bindsym $mod+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+at scratchpad show
+bindsym $mod+Control+at [app_id="spotify"] scratchpad show, fullscreen enable
+
+#==============Key bindings====================
+# Terminals
+bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Shift+Return exec TMUX_TARGET=scraptchpad $TERMINAL -c floating
+
+# TUI's
+bindsym $mod+p exec dmenu_run -i -c
+bindsym $mod+e exec $TERMINAL -e $EDITOR
+bindsym $mod+i exec $TERMINAL -c floating -e $RESOURCES
+bindsym $mod+Shift+i exec $TERMINAL -c floating -e $GPU_RESOURCES
+bindsym $mod+v exec $TERMINAL -c floating -e $FILE
+
+# Applications
+bindsym $mod+n exec $BROWSER
+bindsym $mod+Shift+p exec $BROWSER --private-window
+bindsym $mod+Control+y exec setbg "$HOME/Wallpapers/"
+bindsym $mod+Control+s exec pavucontrol
+bindsym $mod+Control+w exec $TERMINAL -e nmtui
+bindsym $mod+Control+r exec red_light
+bindsym $mod+Control+v exec virt-manager
+bindsym $mod+Control+m exec set_volume
+
+# Notifications
+bindsym Control+space exec dunstctl close
+bindsym Control+Shift+space exec dunstctl close-all
+bindsym Control+period exec dunstctl history-pop
+
+# Lock screen
+bindsym $mod+x exec swaylock --config "${HOME}/.config/swaylock/config"
+bindsym $mod+Shift+x exec swaylock --config "${HOME}/.config/swaylock/config" & systemctl suspend
+
+# Screenshots
+bindsym Print exec screenshot full-screen clipboard
+bindsym Shift+Print exec screenshot area
+bindsym Control+Print exec screenshot full-screen
+bindsym Alt+Print exec screenshot current-window
+
+# Function keys
+bindsym $mod+F1  exec start_spotify
+bindsym $mod+F2  exec change_volume down 1
+bindsym $mod+F3  exec change_volume up 1
+bindsym $mod+F4  exec change_volume toggle
+bindsym $mod+F5  exec playerctl stop
+bindsym $mod+F6  exec playerctl previous
+bindsym $mod+F7  exec playerctl play-pause
+bindsym $mod+F8  exec playerctl next
+bindsym $mod+F12 exec $TERMINAL -c floating -e python
+
+bindsym $mod+Control+ampersand    start_spotify
+bindsym $mod+Control+bracketleft  change_volume down 1
+bindsym $mod+Control+braceleft    change_volume up 1
+bindsym $mod+Control+braceright   change_volume toggle
+bindsym $mod+Control+parenleft    playerctl stop
+bindsym $mod+Control+equal        playerctl previous
+bindsym $mod+Control+asterisk     playerctl play-pause
+bindsym $mod+Control+parenright   playerctl next
+bindsym $mod+Control+bracketright $TERMINAL -c floating -e python
+
+#===================Workspaces=================
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+ampersand    workspace $ws1
+bindsym $mod+bracketleft  workspace $ws2
+bindsym $mod+braceleft    workspace $ws3
+bindsym $mod+braceright   workspace $ws4
+bindsym $mod+parenleft    workspace $ws5
+bindsym $mod+equal        workspace $ws6
+bindsym $mod+asterisk     workspace $ws7
+bindsym $mod+parenright   workspace $ws8
+bindsym $mod+plus         workspace $ws9
+bindsym $mod+bracketright workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+ampersand    move container to workspace $ws1
+bindsym $mod+Shift+bracketleft  move container to workspace $ws2
+bindsym $mod+Shift+braceleft    move container to workspace $ws3
+bindsym $mod+Shift+braceright   move container to workspace $ws4
+bindsym $mod+Shift+parenleft    move container to workspace $ws5
+bindsym $mod+Shift+equal        move container to workspace $ws6
+bindsym $mod+Shift+asterisk     move container to workspace $ws7
+bindsym $mod+Shift+parenright   move container to workspace $ws8
+bindsym $mod+Shift+plus         move container to workspace $ws9
+bindsym $mod+Shift+bracketright move container to workspace $ws10
+
+#Assign Aplications certain workspaces
+for_window [app_id="spotify"] move output primary, resize set 70 ppt 70 ppt, move position center, move scratchpad
+for_window [class="^floating$"] floating enable, resize set 60 ppt 60 ppt, move position center
+
+#================i3 Functionality==============
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+#================Outputs=======================
+# Background image(s)
+output * bg "${HOME}/.cache/wallpaper/wallpaper" fill
+
+# Monitors
+output DP-1 resolution 1920x1080@165.003Hz position 0 0
+output HDMI-A-1 resolution 2560x1440@119.998Hz position 1920 0
+
+#================Inputs========================
+# Keyboards configuration
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 40
+}
+
+input type:keyboard {
+    xkb_layout "us"
+    xkb_variant "dvp"
+}
+
+# Touchpads configuration
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+#=================Modes=======================
+#System
+mode "(Shift+e)xit" {
+    bindsym Shift+E exec --no-startup-id swaymsg exit
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Shift+e "default"
+}
+
+bindsym $mod+Shift+e mode "(Shift+e)xit"
+
+#Resize windows
+mode "resize" {
+    bindsym h resize shrink width 10 px or 5 ppt
+    bindsym j resize grow height 10 px or 5 ppt
+    bindsym k resize shrink height 10 px or 5 ppt
+    bindsym l resize grow width 10 px or 5 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#Gaps mode
+mode "gaps" {
+    bindsym l gaps outer current plus $step
+    bindsym h gaps outer current minus $step
+    bindsym k gaps inner current plus $step
+    bindsym j gaps inner current minus $step
+    bindsym t gaps inner current set $initi; gaps outer current set $inito
+    bindsym n gaps inner current set 0; gaps outer current set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+g mode "default"
+}
+
+bindsym $mod+g mode "gaps"
+
+#Move windows
+mode "move" {
+    bindsym h move left
+    bindsym j move down
+    bindsym k move up
+    bindsym l move right
+    bindsym c move position center
+
+    bindsym $mod+h move workspace to output right
+    bindsym $mod+l move workspace to output left
+
+    bindsym s layout stacking
+    bindsym t layout tabbed
+    bindsym n layout toggle split
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "move"
+
+#===================Colors======================
+# Set colors
+set $red            #EA6962
+set $yellow         #D8A657
+set $grey           #7C6F64
+set $black          #1d2021
+set $white          #FFFFFF
+set $transparent    #00000000
+
+#                       BORDER		BACKGROUND	TEXT		INDICATOR
+client.focused          $white      $black		$white		$yellow
+client.unfocused        $black      $black		$white		$yellow
+client.focused_inactive	$grey       $black		$white		$yellow
+client.urgent           $black      $red        $black		$yellow
+client.background       $black
+
+#===================Bar=========================
+bar {
+    swaybar_command waybar
+}

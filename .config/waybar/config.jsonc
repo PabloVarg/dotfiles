@@ -1,0 +1,55 @@
+// -*- mode: jsonc -*-
+{
+    "spacing": 4,
+    "modules-left": [
+        "clock",
+        "sway/window"
+    ],
+    "modules-center": [
+        "sway/workspaces",
+        "sway/mode",
+    ],
+    "modules-right": [
+        "keyboard-state",
+        "network",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1":"1",
+            "2":"2",
+            "3":"3",
+            "4":"4",
+            "5":"5",
+            "6":"6",
+            "7":"7",
+            "8":"8",
+            "9":"9",
+            "10":"0"
+        }
+    },
+    "sway/window": {
+        "max-length": 30
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "C",
+            "unlocked": ""
+        }
+    },
+    "clock": {
+        "format": "{:%R (%Y) %B %d}"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+    }
+}

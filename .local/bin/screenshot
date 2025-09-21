@@ -44,14 +44,13 @@ take_screenshot () {
 
     case "$target" in
         'area')
-            maim -su > $TMP_FILE
+            grim -t "${EXTENSION}" -g "$(slurp)" - > $TMP_FILE
             ;;
         'current-window')
-            window="$(printf '%d' "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5)")"
-            maim -u -i "$window" > $TMP_FILE
+            grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" - > $TMP_FILE
             ;;
         'full-screen')
-            maim -u > $TMP_FILE
+            grim -t "${EXTENSION}" -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - > $TMP_FILE
             ;;
         *)
             echo "Invalid target $target"
@@ -67,7 +66,7 @@ save_screenshot () {
 
     case "$action" in
         'clipboard')
-            cat "${TMP_FILE}" | xclip -selection clipboard -t "image/${EXTENSION}"
+            cat "${TMP_FILE}" | wl-copy
             ;;
         'file')
             prepare_destination_path
