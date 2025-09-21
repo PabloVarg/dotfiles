@@ -30,15 +30,6 @@ gpu=(
     "nvtop"
 )
 
-nvidia=(
-    "nvidia"
-    "nvidia-utils"
-    "nvidia-settings"
-    "libva-nvidia-driver"
-    "libva-utils"
-    "vdpauinfo"
-)
-
 sound=(
     "alsa-utils"
     "pipewire"
@@ -100,12 +91,12 @@ qemu=(
 )
 
 entertainment=(
-    "ttf-dejavu"
     "firefox"
     "yt-dlp"
 )
 
 fonts=(
+    "ttf-dejavu"
     "ttf-fira-code"
 )
 
@@ -117,10 +108,10 @@ gtk_theme=(
 
 packages_to_install=(
     "${base[@]}"
+    "${sway[@]}"
     "${cpu[@]}"
     "${gpu[@]}"
     "${sound[@]}"
-    "${xorg[@]}"
     "${gui[@]}"
     "${utilities[@]}"
     "${terminal[@]}"
@@ -129,7 +120,6 @@ packages_to_install=(
     "${entertainment[@]}"
     "${fonts[@]}"
     "${gtk_theme[@]}"
-    "${sway[@]}"
 )
 
 ensure_aur_pkg_is_installed() {
