@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
 set -eou pipefail
 
-printf "$2" | wmenu -b -i -l 20 -N 252423 -n a9b665 -M 252423 -m a9b665 -S a9b665 -s 252423 -p "$1"
+printf "${2:-}" | wmenu -b -i -l 20 -N 252423 -n a9b665 -M 252423 -m a9b665 -S a9b665 -s 252423 -p "$1"
