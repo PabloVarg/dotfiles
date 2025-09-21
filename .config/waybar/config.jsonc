@@ -33,23 +33,25 @@
         }
     },
     "sway/window": {
-        "max-length": 30
+        "max-length": 30,
+        "icon": false,
+        "icon-size": 12
     },
     "keyboard-state": {
         "capslock": true,
         "format": "{icon}",
         "format-icons": {
-            "locked": "C",
+            "locked": "●",
             "unlocked": ""
         }
     },
     "clock": {
-        "format": "{:%R (%Y) %B %d}"
+        "format": "μ {:%R (%Y) %B %d}"
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected",
+        "format-wifi": "🌐 {essid} ({signalStrength}%)",
+        "format-ethernet": "🌐 {ipaddr}",
+        "format-linked": "🌐 {ifname} (No IP)",
+        "format-disconnected": "🌐 Disconnected",
     }
 }
