@@ -194,9 +194,7 @@ output HDMI-A-1 resolution 2560x1440@119.998Hz position 1920 0
 input type:keyboard {
     repeat_delay 200
     repeat_rate 40
-}
 
-input type:keyboard {
     xkb_layout "us"
     xkb_variant "dvp"
 }
