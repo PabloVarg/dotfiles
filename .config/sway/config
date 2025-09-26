@@ -299,3 +299,5 @@ client.background       $black
 bar {
     swaybar_command waybar
 }
+
+include /etc/sway/config.d/*
