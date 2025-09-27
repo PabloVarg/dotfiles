@@ -22,7 +22,7 @@ return {
 				zen(1, 1)
 			end)
 			vim.keymap.set("n", "<leader>zz", function()
-				zen(90, 0.9)
+				zen(100, 0.8)
 			end)
 		end,
 	},
