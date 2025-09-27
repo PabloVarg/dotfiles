@@ -23,7 +23,7 @@ return {
 						width = function()
 							return math.max(vim.o.columns * 0.5, math.min(vim.o.columns, 100))
 						end,
-						anchor = "S",
+						anchor = "CENTER",
 					},
 					mappings = {
 						i = {
