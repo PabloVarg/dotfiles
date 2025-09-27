@@ -183,7 +183,7 @@ bindsym $mod+Shift+r restart
 
 #================Outputs=======================
 # Background image(s)
-output * bg "${HOME}/.cache/wallpaper/wallpaper" fill
+output * bg "${HOME}/.cache/wallpaper/wallpaper" fill "#252423"
 
 # Monitors
 output DP-1 resolution 1920x1080@165.003Hz position 0 0
