@@ -186,8 +186,8 @@ bindsym $mod+Shift+r restart
 output * bg "${HOME}/.cache/wallpaper/wallpaper" fill "#252423"
 
 # Monitors
-output DP-1 resolution 1920x1080@165.003Hz position 0 0
-output HDMI-A-1 resolution 2560x1440@119.998Hz position 1920 0
+output DP-1 resolution 1920x1080@165.003Hz position 0 0 render_bit_depth 10
+output HDMI-A-1 resolution 2560x1440@119.998Hz position 1920 0 render_bit_depth 10
 
 #================Inputs========================
 # Keyboards configuration
