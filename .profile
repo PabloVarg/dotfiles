@@ -29,6 +29,11 @@ export PATH="${PATH}:${XDG_LOCAL_BIN}"
 
 
 # Start graphical server
-if command -v ssh &> /dev/null && systemctl -q is-active graphical.target && [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+if command -v ssh &> /dev/null \
+    && command -v sway &> /dev/null \
+    && systemctl -q is-active graphical.target \
+    && [ -z "$DISPLAY" ] \
+    && [ "$XDG_VTNR" = 1 ]
+then
     exec ssh-agent sway -- > /dev/null 2>&1
 fi
