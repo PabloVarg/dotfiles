@@ -151,8 +151,8 @@ return {
 				sorts = {
 					"exact",
 					-- defaults
-					"sort_text",
 					"score",
+					"sort_text",
 				},
 			},
 		},
