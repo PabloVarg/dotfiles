@@ -171,9 +171,15 @@ ensure_yay_is_installed() {
 }
 
 ensure_st_is_installed() {
+    tmp_dir=$(mktemp -d)
+    trap 'rm -rf "${tmp_dir}"' EXIT
+
     pkg_name="st"
-    repo_dir="${SYSTEM_PROJECTS}/st"
     repo_url="https://github.com/PabloVarg/st"
+    repo_dir="${tmp_dir}/st"
+    if [[ -n "${SYSTEM_PROJECTS:-}" ]]; then
+        repo_dir="${SYSTEM_PROJECTS}/st"
+    fi
 
     ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
 }
