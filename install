@@ -6,6 +6,7 @@ usage() {
     echo "Usage: ${0} [-p] [-s]"
     echo -e "  -p\t Sync packages"
     echo -e "  -s\t Stow dotfiles"
+    echo -e "  -a\t Apply all configurations"
     exit 1
 }
 
@@ -39,12 +40,16 @@ stow_dotfiles() {
     create_bun_symlinks
 }
 
-while getopts "ps" flag; do
+while getopts "psa" flag; do
     case "${flag}" in
         p)
             ./.packages/sync
             ;;
         s)
+            stow_dotfiles
+            ;;
+        a)
+            ./.packages/sync
             stow_dotfiles
             ;;
         *)
