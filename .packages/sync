@@ -107,6 +107,15 @@ gtk_theme=(
     "vimix-cursors"
 )
 
+# Change for each hardware
+firmware=(
+    "ast-firmware"
+    "upd72020x-fw"
+    "linux-firmware-qlogic"
+    "wd719x-firmware"
+    "aic94xx-firmware"
+)
+
 packages_to_install=(
     "${base[@]}"
     "${sway[@]}"
@@ -121,6 +130,7 @@ packages_to_install=(
     "${entertainment[@]}"
     "${fonts[@]}"
     "${gtk_theme[@]}"
+    "${firmware[@]}"
 )
 
 ensure_aur_pkg_is_installed() {
