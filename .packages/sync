@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 set -euo pipefail
 
+tmp_dir=$(mktemp -d)
+trap "rm -rf ${tmp_dir}" EXIT
 
 base=(
     "linux"
@@ -160,9 +162,6 @@ ensure_suckless_pkg_is_installed() {
 
 
 ensure_yay_is_installed() {
-    tmp_dir=$(mktemp -d)
-    trap 'rm -rf "${tmp_dir}"' EXIT
-
     pkg_name="yay"
     repo_dir="${tmp_dir}/yay-bin"
     repo_url="https://aur.archlinux.org/yay-bin.git"
@@ -171,25 +170,18 @@ ensure_yay_is_installed() {
 }
 
 ensure_st_is_installed() {
-    tmp_dir=$(mktemp -d)
-    trap 'rm -rf "${tmp_dir}"' EXIT
-
     pkg_name="st"
-    repo_url="https://github.com/PabloVarg/st"
     repo_dir="${tmp_dir}/st"
-    if [[ -n "${SYSTEM_PROJECTS:-}" ]]; then
-        repo_dir="${SYSTEM_PROJECTS}/st"
-    fi
+    repo_url="https://github.com/PabloVarg/st"
 
     ensure_suckless_pkg_is_installed "${repo_dir}" "${repo_url}" "${pkg_name}"
 }
 
 sync_packages() {
-    tmp_dir=$(mktemp -d)
-    tmp_a=$(mktemp -p "${tmp_dir}")
-    tmp_b=$(mktemp -p "${tmp_dir}")
+    mkdir -p "${tmp_dir}/sync"
 
-    trap 'rm -rf "${tmp_dir}"' EXIT
+    tmp_a=$(mktemp -p "${tmp_dir}/sync")
+    tmp_b=$(mktemp -p "${tmp_dir}/sync")
 
     # Write contents to temporary files
     yay -Qqe > "${tmp_a}"
