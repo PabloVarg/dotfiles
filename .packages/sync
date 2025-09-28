@@ -228,7 +228,7 @@ sync_packages() {
     fi
 }
 
-# Manage packages
+# Managed packages
 ensure_yay_is_installed
 sync_packages
 
