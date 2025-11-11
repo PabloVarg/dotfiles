@@ -18,15 +18,21 @@ return {
 		opts = {
 			keymap = {
 				preset = "none",
+				-- Movement
 				["<up>"] = { "select_prev", "fallback" },
 				["<down>"] = { "select_next", "fallback" },
-				["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
-				["<C-e>"] = { "hide", "fallback" },
-				["<Tab>"] = { "accept", "fallback" },
-				["<F4>"] = { "snippet_forward", "fallback" },
-				["<S-F4>"] = { "snippet_backward", "fallback" },
 				["<C-b>"] = { "scroll_documentation_up", "fallback" },
 				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+				-- Documentation
+				["<C-h>"] = { "show_signature", "hide_signature", "fallback" },
+				["<C-t>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide", "fallback" },
+				-- Accept completions
+				["<Tab>"] = { "accept", "fallback" },
+				["<C-u>"] = { "accept", "fallback" },
+				-- Snippets
+				["<C-n>"] = { "snippet_forward" },
+				["<C-p>"] = { "snippet_backward" },
 			},
 
 			signature = {
