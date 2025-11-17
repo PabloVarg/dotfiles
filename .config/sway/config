@@ -103,7 +103,7 @@ bindsym Control+period exec dunstctl history-pop
 
 # Lock screen
 bindsym $mod+x exec swaylock --config "${HOME}/.config/swaylock/config"
-bindsym $mod+Shift+x exec swaylock --config "${HOME}/.config/swaylock/config" & sudo systemctl suspend
+bindsym $mod+Shift+x exec swaylock --config "${HOME}/.config/swaylock/config" & systemctl suspend
 
 # Screenshots
 bindsym Print exec screenshot full-screen clipboard
