@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 set -euo pipefail
 
-project_dir="$(find_files git | picker)"
+project_dir="$(find_files git | fzf)"
 
 cd "${project_dir}"
 nvim

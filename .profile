@@ -27,6 +27,8 @@ export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 # Path
 export PATH="${PATH}:${XDG_LOCAL_BIN}"
 
+# Configuration
+export FZF_DEFAULT_OPTS='--tmux --no-color --border=rounded'
 
 # Start graphical server
 if command -v ssh &> /dev/null \
