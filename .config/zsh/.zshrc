@@ -100,6 +100,9 @@ if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
   . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# FZF
+source <(fzf --zsh)
+
 # Tmux
 if command -v tmux &> /dev/null \
     && [ -z $TMUX ] \
