@@ -67,6 +67,7 @@ utilities=(
     "mpv"
     "lxappearance"
     "jq"
+    "fzf"
 )
 
 terminal=(
