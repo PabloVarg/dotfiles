@@ -28,7 +28,7 @@ export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 export PATH="${PATH}:${XDG_LOCAL_BIN}"
 
 # Configuration
-export FZF_DEFAULT_OPTS='--no-color --border=rounded'
+export FZF_DEFAULT_OPTS='--no-color --border=rounded --cycle'
 
 # Start graphical server
 if command -v ssh &> /dev/null \
