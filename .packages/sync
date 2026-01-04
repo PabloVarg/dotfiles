@@ -96,6 +96,7 @@ qemu=(
 
 entertainment=(
     "firefox"
+    "brave"
     "yt-dlp"
 )
 

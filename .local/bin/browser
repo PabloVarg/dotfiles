@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+set -euo pipefail
+
+declare -A profiles
+
+profiles["Default"]="Profile 1"
+profiles["Server"]="Profile 2"
+profiles["Spotify"]="Profile 3"
+profiles["Incognito"]="Profile 4"
+
+selected_profile=$(prompt_open "Profile:" "$(printf "%s\n" "${!profiles[@]}")")
+
+$BROWSER --new-window --profile-directory="${profiles["$selected_profile"]}"

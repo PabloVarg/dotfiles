@@ -25,7 +25,7 @@ super + n
     $BROWSER
 
 super + shift + p
-    $BROWSER --private-window
+    $BROWSER --incognito
 
 super + control + y
     setbg "$HOME/Wallpapers/" &

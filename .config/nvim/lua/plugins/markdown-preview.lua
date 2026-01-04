@@ -13,7 +13,7 @@ return {
 			vim.g.mkdp_browserfunc = "g:Open_browser_incognito"
 			vim.g.Open_browser_incognito = vim.cmd([[
 function! g:Open_browser_incognito(url)
-    silent exec "Start! $BROWSER -P markdown --private-window " . a:url
+    silent exec "Start! $BROWSER --new-window --profile-directory='Profile 6' --incognito --app=" . a:url
 endfunction
 ]])
 			vim.api.nvim_create_autocmd({ "Filetype" }, {

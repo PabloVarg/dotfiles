@@ -87,8 +87,8 @@ bindsym $mod+Shift+i exec $TERMINAL -c floating -e $GPU_RESOURCES
 bindsym $mod+v exec $TERMINAL -c floating -e $FILE
 
 # Applications
-bindsym $mod+n exec $BROWSER
-bindsym $mod+Shift+p exec $BROWSER --private-window
+bindsym $mod+n exec $BROWSER --profile-directory="Profile 1"
+bindsym $mod+Shift+p exec $BROWSER --profile-directory="Profile 1" --incognito
 bindsym $mod+Control+y exec setbg "$HOME/Wallpapers/"
 bindsym $mod+Control+s exec pavucontrol
 bindsym $mod+Control+w exec $TERMINAL -e nmtui

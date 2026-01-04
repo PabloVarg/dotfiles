@@ -2,7 +2,7 @@
 
 # Default programs
 export WM="i3"
-export BROWSER="firefox"
+export BROWSER="brave"
 export EDITOR="nvim"
 export TERMINAL="st"
 export COMPOSITOR="picom"

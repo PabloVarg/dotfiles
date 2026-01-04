@@ -1,3 +1,4 @@
 #! /bin/bash
 
-pgrep -ax firefox | grep -- "--class spotify" &> /dev/null || $BROWSER -P spotify --name spotify --class spotify --kiosk open.spotify.com &
+spotify_profile="Profile 3"
+pgrep -ax firefox | grep -- "--class spotify" &> /dev/null || $BROWSER --new-window --profile-directory="${spotify_profile}" --name=spotify --class=spotify --app=https://open.spotify.com &
