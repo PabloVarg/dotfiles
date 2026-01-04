@@ -16,6 +16,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 
+# ZMV
+autoload zmv
+
 # Bash word style
 autoload -U select-word-style
 select-word-style bash
